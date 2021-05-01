@@ -20,6 +20,7 @@ class SuperAdminController:
         data.append(new_admin)
 
         self.helper.saveData("db/admin.json",data)
+        print("Added")
 
     def dactivate_admin(self,admin_email):
         data = self.helper.loadData("db/admin.json")
@@ -53,3 +54,19 @@ class SuperAdminController:
                 break
         else:
             print(f"{admin_email} Doesn't exists")
+
+    def add_user(self,user):
+        new_user = {}
+
+        data = self.helper.loadData("db/user.json")
+
+        new_user['frist_name']= user.fname
+        new_user['last_name']= user.fname
+        new_user['email']= user.email
+        new_user['password']= user.password
+        new_user['phone']= user.phone
+
+        data.append(new_user)
+
+        self.helper.saveData("db/user.json",data)
+        print("Added")
