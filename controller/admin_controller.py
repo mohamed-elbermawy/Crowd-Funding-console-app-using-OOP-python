@@ -70,3 +70,14 @@ class SuperAdminController:
 
         self.helper.saveData("db/user.json",data)
         print("Added")
+    
+    def delete_user(self,user_email):
+        data = self.helper.loadData("db/user.json")
+        for index, user in enumerate(data):
+            if user['email'] == user_email:
+                data.pop(index)
+                self.helper.saveData("db/user.json",data)
+                print(f"{user_email} Deleted")
+                break
+        else:
+            print(f"{user_email} Doesn't exists")
