@@ -32,5 +32,14 @@ class SuperAdminController:
         else:
             print(f"{admin_email} Doesn't exists")
 
-
+    def activate_admin(self,admin_email):
+        data = self.helper.loadData("db/admin.json")
+        for admin in data:
+            if admin['email'] == admin_email:
+                admin['is_staff'] = 1
+                self.helper.saveData("db/admin.json",data)
+                print(f"{admin_email} activated")
+                break
+        else:
+            print(f"{admin_email} Doesn't exists")
 
