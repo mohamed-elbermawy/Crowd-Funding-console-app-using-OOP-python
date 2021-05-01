@@ -6,4 +6,5 @@ from helpers.helpers import Helpers
 admin_controller = SuperAdminController(Helpers)
 # admin_controller.add_admin(admin)
 # admin_controller.dactivate_admin("aa@gmail.com")
-admin_controller.activate_admin("a@gmail.com")
+# admin_controller.activate_admin("a@gmail.com")
+admin_controller.delete_admin("a@gmail.com")

@@ -38,8 +38,18 @@ class SuperAdminController:
             if admin['email'] == admin_email:
                 admin['is_staff'] = 1
                 self.helper.saveData("db/admin.json",data)
-                print(f"{admin_email} activated")
+                print(f"{admin_email} Activated")
                 break
         else:
             print(f"{admin_email} Doesn't exists")
 
+    def delete_admin(self,admin_email):
+        data = self.helper.loadData("db/admin.json")
+        for index, admin in enumerate(data):
+            if admin['email'] == admin_email:
+                data.pop(index)
+                self.helper.saveData("db/admin.json",data)
+                print(f"{admin_email} Deleted")
+                break
+        else:
+            print(f"{admin_email} Doesn't exists")
