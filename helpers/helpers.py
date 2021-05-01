@@ -57,3 +57,12 @@ class Helpers:
             return False
 
         return True
+    
+    def isemail_exsist(self,email,file):
+        data = self.loadData(file)
+
+        for item in data:
+            if item['email'] == email:
+                return True
+                
+        return False
