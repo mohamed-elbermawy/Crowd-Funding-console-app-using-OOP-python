@@ -18,3 +18,14 @@ class NormalUserController:
 
         self.helper.saveData("db/project.json",data)
         print("Added")
+    
+    def delete_project(self,project_title):
+        data = self.helper.loadData("db/project.json")
+        for index, project in enumerate(data):
+            if project['title'] == project_title:
+                data.pop(index)
+                self.helper.saveData("db/project.json",data)
+                print(f"{project_title} Deleted")
+                break
+        else:
+            print(f"{project_title} Doesn't exists")
