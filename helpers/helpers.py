@@ -75,3 +75,12 @@ class Helpers:
             return False  
         except ValueError:
             return False
+
+    def istitle_exsist(self,title,file):
+        data = self.loadData(file)
+
+        for item in data:
+            if item['title'] == title:
+                return True
+
+        return False
