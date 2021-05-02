@@ -3,20 +3,20 @@ class AdminController:
         self.helper = Helpers()
 
     def add_user(self,user):
-    new_user = {}
+        new_user = {}
 
-    data = self.helper.loadData("db/user.json")
+        data = self.helper.loadData("db/user.json")
 
-    new_user['frist_name']= user.fname
-    new_user['last_name']= user.fname
-    new_user['email']= user.email
-    new_user['password']= user.password
-    new_user['phone']= user.phone
+        new_user['frist_name']= user.fname
+        new_user['last_name']= user.fname
+        new_user['email']= user.email
+        new_user['password']= user.password
+        new_user['phone']= user.phone
 
-    data.append(new_user)
+        data.append(new_user)
 
-    self.helper.saveData("db/user.json",data)
-    print("Added")
+        self.helper.saveData("db/user.json",data)
+        print("Added")
 
     def delete_user(self,user_email):
         data = self.helper.loadData("db/user.json")

@@ -1,5 +1,6 @@
 import json
 import re
+import datetime
 
 
 class Helpers:
@@ -24,24 +25,24 @@ class Helpers:
         except Exception:
             print(f"{file} Doesn't exists")
 
-    def isfirst_name(self , first_name):
-        if first_name is None or first_name.isdigit():
-            return False
+    def isString(self , item):
+        if item and not item.isdigit():
+            return True
 
-        return True
+        return False
 
-    def islast_name(self , last_name):
-        if last_name is None or last_name.isdigit():
-            return False
-            
-        return True
+    def isNumber(self , item):
+        if item and item.isdigit():
+            return True
+
+        return False
 
     def isemail(self,email):
         email_regix = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
-        if email is None or not re.match(email_regix,email):
-            return False
+        if email and re.match(email_regix,email):
+            return True
 
-        return True
+        return False
 
     def ispassword (self, password , con_password):
         if password is None or con_password is None:
@@ -53,10 +54,10 @@ class Helpers:
 
     def isphone(self,phone):
         phone_regex = '^01[0125][0-9]{8}'
-        if phone is None or not re.match(phone_regex,phone):
-            return False
+        if phone and re.match(phone_regex,phone):
+            return True
 
-        return True
+        return False
     
     def isemail_exsist(self,email,file):
         data = self.loadData(file)
@@ -64,5 +65,13 @@ class Helpers:
         for item in data:
             if item['email'] == email:
                 return True
-                
+
         return False
+
+    def isDate(self , date):
+        try:
+            if date and datetime.datetime.strptime(date, '%Y-%m-%d'):
+                return True
+            return False  
+        except ValueError:
+            return False

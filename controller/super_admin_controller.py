@@ -4,6 +4,17 @@ class SuperAdminController(AdminController):
     def __init__(self,Helpers):
         self.helper = Helpers()
 
+    def delete_admin(self,admin_email):
+        data = self.helper.loadData("db/admin.json")
+        for index, admin in enumerate(data):
+            if admin['email'] == admin_email:
+                data.pop(index)
+                self.helper.saveData("db/admin.json",data)
+                print(f"{admin_email} Deleted")
+                break
+        else:
+            print(f"{admin_email} Doesn't exists")
+
     def add_admin(self,admin):
         new_admin = {}
 
@@ -45,13 +56,3 @@ class SuperAdminController(AdminController):
         else:
             print(f"{admin_email} Doesn't exists")
 
-    def delete_admin(self,admin_email):
-        data = self.helper.loadData("db/admin.json")
-        for index, admin in enumerate(data):
-            if admin['email'] == admin_email:
-                data.pop(index)
-                self.helper.saveData("db/admin.json",data)
-                print(f"{admin_email} Deleted")
-                break
-        else:
-            print(f"{admin_email} Doesn't exists")
