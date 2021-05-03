@@ -33,6 +33,8 @@ helper = Helpers()
 # normal_user_controller.add_project(project)
 # normal_user_controller.delete_project("pro")
 # normal_user_controller.register(user,"db/user.json")
+# data = normal_user_controller.view_all_projects()
+# print(data)
 # print(normal_user_controller.login("a@gmail.com","123","db/user.json"))
 
 # print(helper.isemail_exsist(user.email,"db/user.json"))

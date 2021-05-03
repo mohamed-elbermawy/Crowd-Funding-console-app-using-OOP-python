@@ -72,7 +72,7 @@ class NormalUserController:
             print(f"{project_title} Doesn't exists")
     
     def view_all_projects(self):
-        pass
+        return self.helper.loadData("db/project.json")
 
     def edit_project(self):
         pass
