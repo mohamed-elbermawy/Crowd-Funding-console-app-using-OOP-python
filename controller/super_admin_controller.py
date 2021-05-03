@@ -15,13 +15,13 @@ class SuperAdminController(AdminController):
         else:
             print(f"{admin_email} Doesn't exists")
 
-    def add_admin(self,admin):
+    def create_admin(self,admin):
         new_admin = {}
 
         data = self.helper.loadData("db/admin.json")
 
         new_admin['frist_name']= admin.fname
-        new_admin['last_name']= admin.fname
+        new_admin['last_name']= admin.lname
         new_admin['email']= admin.email
         new_admin['password']= admin.password
         new_admin['phone']= admin.phone

@@ -2,7 +2,26 @@ class NormalUserController:
     def __init__(self,Helpers):
         self.helper = Helpers()
 
-    def add_project(self,project):
+    def register(self,user):
+        new_user = {}
+
+        data = self.helper.loadData("db/user.json")
+
+        new_user['frist_name']= user.fname
+        new_user['last_name']= user.lname
+        new_user['email']= user.email
+        new_user['password']= user.password
+        new_user['phone']= user.phone
+
+        data.append(new_user)
+
+        self.helper.saveData("db/user.json",data)
+        print("Added")
+
+    def login(self):
+        pass
+    
+    def create_project(self,project):
         new_project = {}
 
         data = self.helper.loadData("db/project.json")
@@ -29,3 +48,12 @@ class NormalUserController:
                 break
         else:
             print(f"{project_title} Doesn't exists")
+    
+    def view_all_projects(self):
+        pass
+
+    def edit_project(self):
+        pass
+
+    def search_by_date(self):
+        pass
