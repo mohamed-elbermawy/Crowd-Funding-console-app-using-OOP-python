@@ -1,4 +1,6 @@
-class AdminController:
+from controller.normal_user_controller import NormalUserController
+
+class AdminController(NormalUserController):
     def __init__(self,Helpers):
         self.helper = Helpers()
 

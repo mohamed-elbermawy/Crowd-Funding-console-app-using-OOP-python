@@ -2,10 +2,10 @@ class NormalUserController:
     def __init__(self,Helpers):
         self.helper = Helpers()
 
-    def register(self,user):
+    def register(self,user,file):
         new_user = {}
 
-        data = self.helper.loadData("db/user.json")
+        data = self.helper.loadData(file)
 
         new_user['frist_name']= user.fname
         new_user['last_name']= user.lname
@@ -13,12 +13,30 @@ class NormalUserController:
         new_user['password']= user.password
         new_user['phone']= user.phone
 
+        try:
+            if user.is_staff is not None:
+                new_user['is_staff']= user.is_staff
+        except:
+            pass
+
+        try:
+            if user.is_superuser is not None:
+                new_user['is_superuser']= user.is_superuser
+        except:
+            pass
+
+        try:
+            if user.is_admin_user is not None:
+                new_user['is_admin_user']= user.is_admin_user
+        except:
+            pass
+
         data.append(new_user)
 
-        self.helper.saveData("db/user.json",data)
+        self.helper.saveData(file,data)
         print("Added")
 
-    def login(self):
+    def login(self,email,password):
         pass
     
     def create_project(self,project):
