@@ -77,5 +77,14 @@ class NormalUserController:
     def edit_project(self):
         pass
 
-    def search_by_date(self):
-        pass
+    def search_by_date(self,start_time,auther):
+        projects = self.helper.loadData("db/project.json")
+
+        for project in projects:
+            if project['start_time'] == start_time and project['auther'] == auther:
+                self.helper.printProjectData(project)
+                break
+        else:
+            print("This Product Doesn't Exists")
+
+        

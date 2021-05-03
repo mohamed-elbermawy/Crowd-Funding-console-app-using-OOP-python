@@ -84,3 +84,13 @@ class Helpers:
                 return True
 
         return False
+
+    def printProjectData(self,project):
+        print("----------------------------------")
+        print(f"Title: {project['title']}")
+        print(f"Details: {project['details']}")
+        print(f"Total Target: {project['total_target']}")
+        print(f"Start Time: {project['start_time']}")
+        print(f"End Time: {project['end_time']}")
+        print(f"Auther: {project['auther']}")
+        print("----------------------------------")

@@ -36,6 +36,7 @@ helper = Helpers()
 # data = normal_user_controller.view_all_projects()
 # print(data)
 # print(normal_user_controller.login("a@gmail.com","123","db/user.json"))
+# normal_user_controller.search_by_date("2020-2-30","a@gmail.com")
 
 # print(helper.isemail_exsist(user.email,"db/user.json"))
 
