@@ -36,8 +36,12 @@ class NormalUserController:
         self.helper.saveData(file,data)
         print("Added")
 
-    def login(self,email,password):
-        pass
+    def login(self,email,password,file):
+        data = self.helper.loadData(file)
+        for user in data:
+            if user['email'] == email and user['password'] == password:
+                return user
+        return False
     
     def create_project(self,project):
         new_project = {}

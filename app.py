@@ -23,14 +23,17 @@ helper = Helpers()
 # super_admin_controller.create_user(user)
 # super_admin_controller.delete_user("a@gmail.com")
 # super_admin_controller.register(admin,"db/admin.json")
+# print(super_admin_controller.login("b@gmail.com","123","db/admin.json"))
 
 # admin_controller.create_user(user)
 # admin_controller.delete_user("a@gmail.com")
 # admin_controller.register(admin,"db/admin.json")
+# print(admin_controller.login("b@gmail.com","123","db/admin.json"))
 
 # normal_user_controller.add_project(project)
 # normal_user_controller.delete_project("pro")
 # normal_user_controller.register(user,"db/user.json")
+# print(normal_user_controller.login("a@gmail.com","123","db/user.json"))
 
 # print(helper.isemail_exsist(user.email,"db/user.json"))
 
